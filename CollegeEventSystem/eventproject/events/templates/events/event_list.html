@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event List</title>
+</head>
+
+<body>
+
+<h1>Event List</h1>
+
+<ul>
+{% for event in page_obj %}
+<li>
+{{ event.name }} - {{ event.date }} - {{ event.location }}
+</li>
+{% endfor %}
+</ul>
+
+<br>
+
+<div>
+
+{% if page_obj.has_previous %}
+<a href="?page=1">First</a>
+<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>
+<a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+</div>
+
+</body>
+</html>
