@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<body class="container mt-5">
+
+<h3>Are you sure you want to delete {{product.name}} ?</h3>
+
+<form method="post">
+{% csrf_token %}
+
+<button type="submit">Delete</button>
+
+</form>
+
+</body>
+</html>
